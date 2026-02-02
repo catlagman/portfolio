@@ -45,7 +45,7 @@ $spacing-section: 4rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1.5em;
+  padding: 1em 1.5em;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 2em;
   backdrop-filter: blur(10px);
@@ -103,7 +103,7 @@ $spacing-section: 4rem;
 .hero {
   max-width: 1400px;
   margin: 0 auto;
-  padding: $spacing-section $spacing-section 8rem;
+  padding: 9.125em $spacing-section 8rem;
 }
 
 .heroName {
