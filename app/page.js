@@ -10,10 +10,10 @@ export default function Home() {
           <Image src="/logo-cl.svg" alt="CL Logo" width={50} height={50} />
         </div>
         <ul className={styles.navLinks}>
-          <li><a href="#about">About</a></li>
-          <li><a href="#design">Design</a></li>
-          <li><a href="#art">Art</a></li>
-          <li><a href="#photos">Photos</a></li>
+          <li><a href="#about" className={styles.active}>About</a></li>
+          <li><a href="#design" className={styles.disabled}>Design</a></li>
+          <li><a href="#art" className={styles.disabled}>Art</a></li>
+          <li><a href="#photos" className={styles.disabled}>Photos</a></li>
         </ul>
       </nav>
 
@@ -33,22 +33,6 @@ export default function Home() {
             I'm currently working at AWS to support AWS sellers and operations needs and workflows. When I'm not working, I'm hiking outside with my dog, Louie or trying a new restaurant for dinner.
           </p>
         </div>
-      </section>
-
-      {/* Placeholder sections for smooth scroll */}
-      <section className={styles.section} id="design">
-        <h2>Design</h2>
-        <p>Coming soon...</p>
-      </section>
-
-      <section className={styles.section} id="art">
-        <h2>Art</h2>
-        <p>Coming soon...</p>
-      </section>
-
-      <section className={styles.section} id="photos">
-        <h2>Photos</h2>
-        <p>Coming soon...</p>
       </section>
 
       {/* Footer */}
