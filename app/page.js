@@ -32,7 +32,7 @@ export default function Home() {
           </p>
           
           <p className={styles.aboutText}>
-            I'm currently working at AWS to support AWS sellers and operations needs and workflows. When I'm not working, I'm hiking outside with my beloved dog/sidekick, Louie or trying a restaurant in a different neighborhood for dinner.
+            I'm currently working at AWS to support AWS sellers and operations needs and workflows. When I'm not working, I'm hiking outside with my beloved dog/sidekick, Louie, painting/drawing something that I dreamt of, or trying a restaurant in a different neighborhood for dinner.
           </p>
         </div>
       </section>
