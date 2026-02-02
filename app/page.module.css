@@ -67,7 +67,7 @@
   font-size: 4.5em;
   font-weight: 700;
   line-height: 1.4;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
   padding-bottom: 0.3em;
   overflow: visible;
   background: linear-gradient(90deg, #C178D3 0%, #C178D3 25%, #E2329C 52%, #FE7325 80%, #FE7325 100%);
@@ -78,8 +78,9 @@
 }
 
 .heroSubtitle {
-  font-size: 1.5em;
+  font-size: 2em;
   font-weight: 400;
+  font-family: 'Instrument Sans', sans-serif;
   margin-bottom: 3rem;
   line-height: 1.5;
 }
@@ -138,7 +139,7 @@
   }
 
   .heroSubtitle {
-    font-size: 1.25em;
+    font-size: 1.75em;
   }
 
   .aboutText {
@@ -172,7 +173,7 @@
   }
 
   .heroSubtitle {
-    font-size: 1.125em;
+    font-size: 1.5em;
   }
 
   .aboutText {
