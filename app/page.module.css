@@ -66,9 +66,9 @@
 .heroName {
   font-size: 4.5em;
   font-weight: 700;
-  line-height: 1.4;
-  margin-bottom: 0.5rem;
-  padding-bottom: 0.3em;
+  line-height: 1.2;
+  margin-bottom: 0;
+  padding-bottom: 0;
   overflow: visible;
   background: linear-gradient(90deg, #C178D3 0%, #C178D3 25%, #E2329C 52%, #FE7325 80%, #FE7325 100%);
   -webkit-background-clip: text;
@@ -80,7 +80,8 @@
 .heroSubtitle {
   font-size: 2em;
   font-weight: 400;
-  font-family: 'Instrument Sans', sans-serif;
+  font-family: 'Instrument Sans', sans-serif !important;
+  margin-top: 0.5rem;
   margin-bottom: 3rem;
   line-height: 1.5;
 }
