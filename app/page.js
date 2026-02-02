@@ -4,11 +4,13 @@ import styles from './page.module.scss'
 export default function Home() {
   return (
     <main className={styles.main}>
-      {/* Navigation */}
+      {/* Logo */}
+      <div className={styles.logo}>
+        <Image src="/logo-cl.svg" alt="CL Logo" width={50} height={50} />
+      </div>
+
+      {/* Navigation - Sticky Footer */}
       <nav className={styles.nav}>
-        <div className={styles.logo}>
-          <Image src="/logo-cl.svg" alt="CL Logo" width={50} height={50} />
-        </div>
         <ul className={styles.navLinks}>
           <li><a href="#about" className={styles.active}>About</a></li>
           <li><a href="#design" className={styles.disabled}>Design</a></li>
@@ -26,11 +28,11 @@ export default function Home() {
 
         <div className={styles.about}>
           <p className={styles.aboutText}>
-            I'm a product designer specializing in visual design, with several years of experience across startups and corporate environments. I leverage user research and data to deeply understand user needs and guide design decisions to influence product strategy. I thrive on continuous experimentation, iteration, and optimization.
+            I'm a product designer specializing in visual design, with several years of experience across startups and corporate environments. I leverage user research and data to deeply understand user needs and guide design decisions and influence product strategy. I thrive on continuous experimentation, iteration, and optimization.
           </p>
           
           <p className={styles.aboutText}>
-            I'm currently working at AWS to support AWS sellers and operations needs and workflows. When I'm not working, I'm hiking along the coast with my beloved dog/sidekick, Louie, drawing a whimsical dream in my sketchbook, or trying a new restaurant in a different neighborhood for dinner.
+            I'm currently working at AWS to support AWS sellers and operations needs and workflows. When I'm not working, I'm hiking outside with my dog, Louie or trying a new restaurant for dinner.
           </p>
         </div>
       </section>
