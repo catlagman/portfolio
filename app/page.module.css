@@ -70,7 +70,7 @@
   margin-bottom: 1.5rem;
   padding-bottom: 0.3em;
   overflow: visible;
-  background: linear-gradient(90deg, #C178D3 0%, #E2329C 50%, #FE7325 100%);
+  background: linear-gradient(90deg, #C178D3 0%, #C178D3 25%, #E2329C 52%, #FE7325 80%, #FE7325 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
