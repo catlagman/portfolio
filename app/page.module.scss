@@ -32,7 +32,6 @@ $spacing-section: 4rem;
 }
 
 .main {
-  position: relative;
   min-height: 100vh;
   padding: 0 0 8rem 0;
 }
@@ -54,9 +53,7 @@ $spacing-section: 4rem;
 }
 
 .logo {
-  position: absolute;
-  top: 2rem;
-  left: 4rem;
+  padding: 2rem 0 0 4rem;
   cursor: pointer;
 }
 
@@ -103,7 +100,7 @@ $spacing-section: 4rem;
 .hero {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 9.125em $spacing-section 8rem;
+  padding: 4em $spacing-section 8rem;
 }
 
 .heroName {
@@ -168,11 +165,11 @@ $spacing-section: 4rem;
 /* Responsive */
 @media (max-width: 1024px) {
   .logo {
-    left: 2rem;
+    padding: 2rem 0 0 2rem;
   }
 
   .hero {
-    padding: 2rem 2rem 6rem;
+    padding: 3em 2rem 6rem;
   }
 
   .heroName {
@@ -195,8 +192,7 @@ $spacing-section: 4rem;
 
 @media (max-width: 768px) {
   .logo {
-    left: 1.5rem;
-    top: 1.5rem;
+    padding: 1.5rem 0 0 1.5rem;
   }
 
   .nav {
@@ -210,7 +206,7 @@ $spacing-section: 4rem;
   }
 
   .hero {
-    padding: 2rem 1.5rem 6rem;
+    padding: 2em 1.5rem 6rem;
   }
 
   .heroName {
@@ -222,7 +218,7 @@ $spacing-section: 4rem;
   }
 
   .aboutText {
-    font-size: 1em;
+    font-size: 1.125em;
   }
 
   .section {
