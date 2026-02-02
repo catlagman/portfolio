@@ -66,9 +66,10 @@
 .heroName {
   font-size: 4.5em;
   font-weight: 700;
-  line-height: 1.3;
-  margin-bottom: 1rem;
-  padding-bottom: 0.2em;
+  line-height: 1.4;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.3em;
+  overflow: visible;
   background: linear-gradient(90deg, #C178D3 0%, #E2329C 54%, #FE7325 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
