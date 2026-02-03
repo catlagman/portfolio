@@ -68,7 +68,7 @@ export default function Home() {
           </p>
           
           <p className={styles.aboutText}>
-            I'm currently working at AWS to support AWS sellers and operations needs and workflows. When I'm not working, I'm hiking outside with my beloved dog/sidekick, Louie, painting whenever I feel a creative spark, snapping photos, or trying a restaurant in a different neighborhood for dinner.
+            I'm currently working at AWS to support AWS employees' needs and workflows in Sales and Sales Operations. When I'm not working, I'm hiking outside with my beloved dog/sidekick, Louie, painting whenever I feel a creative spark, snapping photos, or trying a restaurant in a different neighborhood for dinner.
           </p>
         </div>
       </section>
@@ -77,7 +77,7 @@ export default function Home() {
       <section className={styles.section} id="design">
         <h2 className={styles.heroName}>Design</h2>
         <p className={styles.heroSubtitle}>
-          Selected pieces of work. For more, please <span className={styles.underline}>reach out</span>.
+          Selected pieces of work. For more, please <a href="mailto:calagman@gmail.com" className={styles.underline}>reach out</a>.
         </p>
         <div className={styles.comingSoon}>
           <p>Coming soon</p>

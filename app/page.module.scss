@@ -133,6 +133,12 @@ margin-bottom: 1rem;
 .underline {
   text-decoration: underline;
   text-underline-offset: 4px;
+  color: inherit;
+  cursor: pointer;
+  
+  &:hover {
+    opacity: 0.8;
+  }
 }
 
 .comingSoon {
