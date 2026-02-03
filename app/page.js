@@ -29,6 +29,14 @@ export default function Home() {
 
     sections.forEach((section) => observer.observe(section))
 
+    // Trigger animation for hero section on page load
+    const heroSection = document.getElementById('about')
+    if (heroSection) {
+      setTimeout(() => {
+        heroSection.classList.add(styles.visible)
+      }, 100)
+    }
+
     return () => {
       sections.forEach((section) => observer.unobserve(section))
     }
@@ -48,8 +56,8 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className={`${styles.hero} ${styles.visible}`} id="about">
-        <h1 className={styles.heroName}>Catherine Lagman</h1>
+      <section className={styles.hero} id="about">
+        <h1 className={styles.heroName}>Cat Lagman</h1>
         <p className={styles.heroSubtitle}>
           A multi-disciplinary UX/Product Designer and artist based in San Francisco, CA
         </p>

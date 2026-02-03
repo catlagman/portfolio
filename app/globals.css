@@ -12,7 +12,7 @@ html {
 
 body {
   font-family: 'Playfair Display', serif;
-  background: linear-gradient(-45deg, #1A0238, #4A049E, #1A0238, #4A049E);
+  background: linear-gradient(-45deg, #1A0238, #4D0350, #1A0238, #4D0350);
   background-size: 400% 400%;
   animation: gradientShift 15s ease infinite;
   color: #DEC5F5;
