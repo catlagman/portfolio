@@ -100,7 +100,7 @@ $spacing-section: 4rem;
 .hero {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 4em $spacing-section 8rem;
+  padding: 4.5em $spacing-section 8rem;
 }
 
 .heroName {
@@ -141,7 +141,7 @@ margin-bottom: 1rem;
 .section {
   max-width: 1400px;
   margin: 0 auto;
-  padding: $spacing-section $spacing-section;
+  padding: 4.5em $spacing-section $spacing-section;
   min-height: 50vh;
 
   h2 {
