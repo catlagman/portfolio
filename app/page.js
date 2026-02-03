@@ -21,6 +21,8 @@ export default function Home() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           setActiveSection(entry.target.id)
+          // Add visible class to trigger animation
+          entry.target.classList.add(styles.visible)
         }
       })
     }, observerOptions)
@@ -46,7 +48,7 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className={styles.hero} id="about">
+      <section className={`${styles.hero} ${styles.visible}`} id="about">
         <h1 className={styles.heroName}>Catherine Lagman</h1>
         <p className={styles.heroSubtitle}>
           A multi-disciplinary UX/Product Designer and artist based in San Francisco, CA
@@ -54,7 +56,7 @@ export default function Home() {
 
         <div className={styles.about}>
           <p className={styles.aboutText}>
-            I'm a product designer specializing in visual design, with several years of experience across startups and corporate environments. I leverage user research and data to deeply understand user needs and guide design decisions to influence product strategy. I thrive on continuous experimentation, iteration, and optimization to ensure we're building the best experience possible.
+            I'm a designer specializing in visual design, with several years of experience across startups and corporate environments. I leverage user research and data to deeply understand user needs and guide design decisions to influence product strategy. I thrive on continuous experimentation, iteration, and optimization to ensure we're building the best experience possible.
           </p>
           
           <p className={styles.aboutText}>
