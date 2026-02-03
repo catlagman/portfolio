@@ -75,6 +75,14 @@ export default function Home() {
           <p className={styles.aboutText}>
             I'm currently working at AWS to support AWS employees' needs and workflows in Sales and Sales Operations. When I'm not working, I'm hiking outside with my beloved dog/sidekick, Louie, painting whenever I feel a creative spark, snapping photos, or trying a restaurant in a different neighborhood for dinner.
           </p>
+      
+          <div className={styles.links}>
+            <a href="mailto:calagman@gmail.com" className={styles.link}>Email me</a>
+            <span className={styles.linkSeparator}>·</span>
+            <a href="https://www.linkedin.com/in/catherinelagman/" target="_blank" rel="noopener noreferrer" className={styles.link}>LinkedIn</a>
+            <span className={styles.linkSeparator}>·</span>
+            <a href="https://medium.com/@catlagman" target="_blank" rel="noopener noreferrer" className={styles.link}>Medium</a>
+          </div>
         </div>
       </section>
 
@@ -101,7 +109,11 @@ export default function Home() {
       {/* Footer */}
       <footer className={styles.footer}>
         <p>© 2026 Catherine Lagman. All content and images are reserved.</p>
-        <p>Made in San Francisco · Last updated February 2026</p>
+        <p>
+          Made in San Francisco
+          <span className={styles.linkSeparator}>·</span>
+          Last updated February 2026
+        </p>
       </footer>
 
       {/* Curator.io Script */}
