@@ -45,7 +45,7 @@ export default function Home() {
           <li><a href="#about" className={activeSection === 'about' ? styles.active : ''}>About</a></li>
           <li><a href="#design" className={styles.disabled}>Design</a></li>
           <li><a href="#art" className={styles.disabled}>Art</a></li>
-          <li><a href="#photos" className={activeSection === 'photos' ? styles.active : ''}>Photos</a></li>
+          <li><a href="#photos" className={activeSection === 'photos' ? styles.active : ''}>Photography</a></li>
         </ul>
       </nav>
 
@@ -53,7 +53,7 @@ export default function Home() {
       <section className={styles.hero} id="about">
         <h1 className={styles.heroName}>Catherine Lagman</h1>
         <p className={styles.heroSubtitle}>
-          A multi-disciplinary UX/Product Designer and artist based in San Francisco, CA.
+          A multi-disciplinary UX/Product Designer and artist based in San Francisco, CA
         </p>
 
         <div className={styles.about}>
@@ -62,16 +62,16 @@ export default function Home() {
           </p>
           
           <p className={styles.aboutText}>
-            I'm currently working at AWS to support AWS sellers and operations needs and workflows. When I'm not working, I'm hiking outside with my beloved dog/sidekick, Louie or trying a restaurant in a different neighborhood for dinner.
+            I'm currently working at AWS to support AWS sellers and operations needs and workflows. When I'm not working, I'm hiking outside with my beloved dog/sidekick, Louie, painting whenever I feel my creative spark, snapping photos of friendly faces, or trying a restaurant in a different neighborhood for dinner.
           </p>
         </div>
       </section>
 
       {/* Photos Section */}
       <section className={styles.section} id="photos">
-        <h2 className={styles.heroName}>Photos</h2>
+        <h2 className={styles.heroName}>Photography</h2>
         <p className={styles.heroSubtitle}>
-          Dreamy photos of some past clients. For more details, please reach out.
+          Dreamy photos of some past clients
         </p>
         <div id="curator-feed-default-feed-layout"></div>
       </section>
