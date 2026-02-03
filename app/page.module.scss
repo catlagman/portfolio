@@ -102,6 +102,9 @@ $spacing-section: 4rem;
   
   a {
     padding: 0;
+    display: flex;
+    align-items: center;
+    line-height: 0;
     
     &:hover {
       background-color: transparent;
@@ -111,6 +114,7 @@ $spacing-section: 4rem;
   
   img {
     display: block;
+    vertical-align: middle;
   }
 }
 
@@ -298,6 +302,11 @@ margin-bottom: 1rem;
     gap: 2rem;
     font-size: 1.1rem;
   }
+
+  .navLogo img {
+    width: 22px;
+    height: auto;
+  }
 }
 
 @media (max-width: 768px) {
@@ -313,6 +322,11 @@ margin-bottom: 1rem;
   .navLinks {
     gap: 1rem;
     font-size: 0.9rem;
+  }
+
+  .navLogo img {
+    width: 20px;
+    height: auto;
   }
 
   .hero {
