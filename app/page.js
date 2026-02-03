@@ -49,7 +49,7 @@ export default function Home() {
       <nav className={styles.nav}>
         <ul className={styles.navLinks}>
           <li><a href="#about" className={activeSection === 'about' ? styles.active : ''}>About</a></li>
-          <li><a href="#design" className={styles.disabled}>Design</a></li>
+          <li><a href="#design" className={activeSection === 'design' ? styles.active : ''}>Design</a></li>
           <li><a href="#art" className={styles.disabled}>Art</a></li>
           <li><a href="#photos" className={activeSection === 'photos' ? styles.active : ''}>Photography</a></li>
         </ul>
@@ -70,6 +70,17 @@ export default function Home() {
           <p className={styles.aboutText}>
             I'm currently working at AWS to support AWS sellers and operations needs and workflows. When I'm not working, I'm hiking outside with my beloved dog/sidekick, Louie, painting whenever I feel a creative spark, snapping photos, or trying a restaurant in a different neighborhood for dinner.
           </p>
+        </div>
+      </section>
+
+      {/* Design Section */}
+      <section className={styles.section} id="design">
+        <h2 className={styles.heroName}>Design</h2>
+        <p className={styles.heroSubtitle}>
+          Selected pieces of work. For more, please <span className={styles.underline}>reach out</span>.
+        </p>
+        <div className={styles.comingSoon}>
+          <p>Coming soon</p>
         </div>
       </section>
 
