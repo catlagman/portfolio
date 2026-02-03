@@ -96,6 +96,24 @@ $spacing-section: 4rem;
   }
 }
 
+.navLogo {
+  display: flex;
+  align-items: center;
+  
+  a {
+    padding: 0;
+    
+    &:hover {
+      background-color: transparent;
+      opacity: 0.8;
+    }
+  }
+  
+  img {
+    display: block;
+  }
+}
+
 /* Hero Section */
 .hero {
   max-width: 1400px;

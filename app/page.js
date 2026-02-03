@@ -50,6 +50,11 @@ export default function Home() {
         <ul className={styles.navLinks}>
           <li><a href="#about" className={activeSection === 'about' ? styles.active : ''}>About</a></li>
           <li><a href="#design" className={activeSection === 'design' ? styles.active : ''}>Design</a></li>
+          <li className={styles.navLogo}>
+            <a href="#about">
+              <Image src="/logo-newest.svg" alt="CL Logo" width={36} height={39} />
+            </a>
+          </li>
           <li><a href="#art" className={styles.disabled}>Art</a></li>
           <li><a href="#photos" className={activeSection === 'photos' ? styles.active : ''}>Photography</a></li>
         </ul>
