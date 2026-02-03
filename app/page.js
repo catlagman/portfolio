@@ -52,7 +52,7 @@ export default function Home() {
           <li><a href="#design" className={activeSection === 'design' ? styles.active : ''}>Design</a></li>
           <li className={styles.navLogo}>
             <a href="#about">
-              <Image src="/logo-newest.svg" alt="CL Logo" width={36} height={39} />
+              <Image src="/logo-newest.svg" alt="CL Logo" width={30} height={33} />
             </a>
           </li>
           <li><a href="#art" className={styles.disabled}>Art</a></li>
