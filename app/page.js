@@ -1,8 +1,37 @@
+'use client'
+
 import Image from 'next/image'
 import Script from 'next/script'
+import { useEffect, useState } from 'react'
 import styles from './page.module.scss'
 
 export default function Home() {
+  const [activeSection, setActiveSection] = useState('about')
+
+  useEffect(() => {
+    const sections = document.querySelectorAll('section[id]')
+    
+    const observerOptions = {
+      root: null,
+      rootMargin: '-50% 0px -50% 0px',
+      threshold: 0
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id)
+        }
+      })
+    }, observerOptions)
+
+    sections.forEach((section) => observer.observe(section))
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section))
+    }
+  }, [])
+
   return (
     <main className={styles.main}>
       {/* Logo */}
@@ -13,10 +42,10 @@ export default function Home() {
       {/* Navigation - Sticky Footer */}
       <nav className={styles.nav}>
         <ul className={styles.navLinks}>
-          <li><a href="#about" className={styles.active}>About</a></li>
+          <li><a href="#about" className={activeSection === 'about' ? styles.active : ''}>About</a></li>
           <li><a href="#design" className={styles.disabled}>Design</a></li>
           <li><a href="#art" className={styles.disabled}>Art</a></li>
-          <li><a href="#photos">Photos</a></li>
+          <li><a href="#photos" className={activeSection === 'photos' ? styles.active : ''}>Photos</a></li>
         </ul>
       </nav>
 
