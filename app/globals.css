@@ -12,9 +12,23 @@ html {
 
 body {
   font-family: 'Playfair Display', serif;
-  background-color: #1A0238;
+  background: linear-gradient(-45deg, #1A0238, #4A049E, #1A0238, #4A049E);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
   color: #DEC5F5;
   line-height: 1.6;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
