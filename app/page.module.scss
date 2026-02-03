@@ -169,7 +169,9 @@ margin-bottom: 1rem;
 
 /* Footer */
 .footer {
-  text-align: center;
+  left: auto;
+  right: auto;
+  text-align: left;
   padding: 3rem 2rem;
   font-family: $font-sans;
   font-size: 0.9rem;
