@@ -34,16 +34,13 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
-      {/* Logo */}
-      <div className={styles.logo}>
-        <Image src="/logo-cl.svg" alt="CL Logo" width={50} height={50} />
-      </div>
 
       {/* Navigation - Sticky Footer */}
       <nav className={styles.nav}>
         <ul className={styles.navLinks}>
           <li><a href="#about" className={activeSection === 'about' ? styles.active : ''}>About</a></li>
           <li><a href="#design" className={styles.disabled}>Design</a></li>
+          <li className={styles.logo}><Image src="/logo-cl.svg" alt="CL Logo" width={50} height={50}</li>
           <li><a href="#art" className={styles.disabled}>Art</a></li>
           <li><a href="#photos" className={activeSection === 'photos' ? styles.active : ''}>Photography</a></li>
         </ul>
@@ -62,7 +59,7 @@ export default function Home() {
           </p>
           
           <p className={styles.aboutText}>
-            I'm currently working at AWS to support AWS sellers and operations needs and workflows. When I'm not working, I'm hiking outside with my beloved dog/sidekick, Louie, painting whenever I feel my creative spark, snapping photos of friendly faces, or trying a restaurant in a different neighborhood for dinner.
+            I'm currently working at AWS to support AWS sellers and operations needs and workflows. When I'm not working, I'm hiking outside with my beloved dog/sidekick, Louie, painting whenever I feel a creative spark, snapping photos of friendly faces, or trying a restaurant in a different neighborhood for dinner.
           </p>
         </div>
       </section>
@@ -71,7 +68,7 @@ export default function Home() {
       <section className={styles.section} id="photos">
         <h2 className={styles.heroName}>Photography</h2>
         <p className={styles.heroSubtitle}>
-          Dreamy photos of some past clients
+          Dreamy photos of some of my past clients
         </p>
         <div id="curator-feed-default-feed-layout"></div>
       </section>
