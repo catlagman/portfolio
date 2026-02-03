@@ -147,6 +147,23 @@ $spacing-section: 4rem;
   }
 }
 
+.sectionTitle {
+  font-size: 3em;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Curator.io Feed Styling */
+#curator-feed-default-feed-layout {
+  width: 100%;
+  
+  // Hide the "Powered by Curator.io" logo
+  .crt-logo {
+    display: none !important;
+  }
+}
+
 /* Footer */
 .footer {
   text-align: center;

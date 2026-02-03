@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Script from 'next/script'
 import styles from './page.module.scss'
 
 export default function Home() {
@@ -15,7 +16,7 @@ export default function Home() {
           <li><a href="#about" className={styles.active}>About</a></li>
           <li><a href="#design" className={styles.disabled}>Design</a></li>
           <li><a href="#art" className={styles.disabled}>Art</a></li>
-          <li><a href="#photos" className={styles.disabled}>Photos</a></li>
+          <li><a href="#photos">Photos</a></li>
         </ul>
       </nav>
 
@@ -32,9 +33,18 @@ export default function Home() {
           </p>
           
           <p className={styles.aboutText}>
-            I'm currently working at AWS to support AWS sellers and operations needs and workflows. When I'm not working, I'm hiking outside with my beloved dog/sidekick, Louie, painting/drawing something that I dreamt of, or trying a restaurant in a different neighborhood for dinner.
+            I'm currently working at AWS to support AWS sellers and operations needs and workflows. When I'm not working, I'm hiking outside with my beloved dog/sidekick, Louie or trying a restaurant in a different neighborhood for dinner.
           </p>
         </div>
+      </section>
+
+      {/* Photos Section */}
+      <section className={styles.section} id="photos">
+        <h2 className={styles.heroName}>Photos</h2>
+        <p className={styles.heroSubtitle}>
+          Dreamy photos of some past clients. For more details, please reach out.
+        </p>
+        <div id="curator-feed-default-feed-layout"></div>
       </section>
 
       {/* Footer */}
@@ -42,6 +52,21 @@ export default function Home() {
         <p>© 2026 Catherine Lagman. All content and images are reserved.</p>
         <p>Made in San Francisco · Last updated February 2026</p>
       </footer>
+
+      {/* Curator.io Script */}
+      <Script
+        id="curator-feed-script"
+        strategy="lazyOnload"
+        dangerouslySetInnerHTML={{
+          __html: `
+            (function(){
+              var i,e,d=document,s="script";i=d.createElement("script");i.async=1;i.charset="UTF-8";
+              i.src="https://cdn.curator.io/published/498605c4-fd0b-442f-831c-94f0da646ce6.js";
+              e=d.getElementsByTagName(s)[0];e.parentNode.insertBefore(i, e);
+            })();
+          `
+        }}
+      />
     </main>
   )
 }
