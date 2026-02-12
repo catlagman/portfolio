@@ -7,7 +7,7 @@ import styles from './page.module.scss'
 export default function Home() {
   const [activeSection, setActiveSection] = useState('about')
   const [formStatus, setFormStatus] = useState('idle') // idle, submitting, success, error
-  const [openModal, setOpenModal] = useState(null) // null, 'kespry', 'able-co'
+  const [openModal, setOpenModal] = useState(null) // null, 'kespry', 'able-co', 'aws'
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -148,7 +148,7 @@ export default function Home() {
 
           <div className={styles.caseStudyCard} onClick={() => setOpenModal('aws')}>
             <div className={styles.cardImage}>
-              <img src="/aws-thumbnail.jpg" alt="AWS Research Studies" />
+              <img src="/aws-thumbnail.png" alt="AWS Research Studies" />
             </div>
             <div className={styles.cardContent}>
               <h3>Strategic research studies that have informed design strategy and beyond</h3>
@@ -164,19 +164,13 @@ export default function Home() {
           <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
             <button className={styles.modalClose} onClick={() => setOpenModal(null)}>×</button>
             <h2 className={styles.modalTitle}>Reimagining Inventory Management</h2>
-            <p className={styles.modalMeta}>Able Co. · Research, Strategy, Interaction · 2019</p>
+            <p className={styles.modalMeta}>Kespry · Research, Strategy, Interaction · 2018</p>
             <div className={styles.modalBody}>
-              <p>As Kespry's first design hire, I led the redesign of our inventory management workspace, a flagship project that transformed how the company approached product development. The initial workspace had low engagement and didn't meet customer needs, so I conducted extensive research with aggregate companies where I discovered Inventory Managers spent 3 weeks per quarter manually reconciling drone data with Enterprise Resource Planning (ERP) systems in Excel. I designed and validated three concepts ranging from low to high effort with customers, and landed on an approach that integrated into their existing workflows rather than requiring any organizational changes. The redesigned workspace was organized by site and flagged discrepancies through actionable alerts. This increased engagement by 17% within three months and secured a partnership with Summit Materials, one of North America's largest aggregate companies. This project also established user research as standard practice at Kespry and demonstrated how design drives business outcomes.</p>
+              <p>As Kespry's first design hire, I led the redesign of our inventory management workspace, a flagship project that transformed how the company approached product development. The initial workspace had low engagement and didn't meet customer needs, so I conducted extensive research with aggregate companies where I discovered Inventory Managers spent 3 weeks per quarter manually reconciling drone data with Enterprise Resource Planning (ERP) systems in Excel.</p>
               
-              <div className={styles.modalImage}>
-                <img src="/kespry-image1.jpg" alt="Kespry research" />
-                <p className={styles.imageCaption}>Picture description</p>
-              </div>
-
-              <div className={styles.modalImage}>
-                <img src="/kespry-image2.jpg" alt="Kespry design" />
-                <p className={styles.imageCaption}>Picture description</p>
-              </div>
+              <p>I designed and validated three concepts ranging from low to high effort with customers, and landed on an approach that integrated into their existing workflows rather than requiring any organizational changes. The redesigned workspace was organized by site and flagged discrepancies through actionable alerts.</p>
+              
+              <p>This increased engagement by 17% within three months and secured a partnership with Summit Materials, one of North America's largest aggregate companies. This project also established user research as standard practice at Kespry and demonstrated how design drives business outcomes.</p>
             </div>
           </div>
         </div>
@@ -189,7 +183,11 @@ export default function Home() {
             <h2 className={styles.modalTitle}>Supporting epidemiologists to find relevant cancer research</h2>
             <p className={styles.modalMeta}>Able Co. · Research, Strategy, Interaction · 2019</p>
             <div className={styles.modalBody}>
-              <p>At Able Co., I designed a global search feature for the Parker Institute of Cancer Immunotherapy's platform, where Nobel prize-winning scientists collaborate to cure cancer. Scientists struggled to find information because search was siloed within specific product areas. Despite agency constraints—a 2-month timeline and stakeholder-prescribed solution—I evaluated three interaction concepts and recommended a search takeover approach that balanced usability with technical feasibility. The redesigned search featured cross-category results, engagement-based prioritization, and fuzzy matching. Results: 15% of sessions used search, 10% increase in daily active users, 13% increase in engagement, and 17% increase in research downloads, proving that better discoverability drives scientific collaboration.</p>
+              <p>At Able Co., I designed a global search feature for the Parker Institute of Cancer Immunotherapy's platform, where Nobel prize-winning scientists collaborate to cure cancer. Scientists struggled to find information because search was siloed within specific product areas.</p>
+              
+              <p>Despite agency constraints—a 2-month timeline and stakeholder-prescribed solution—I evaluated three interaction concepts and recommended a search takeover approach that balanced usability with technical feasibility. The redesigned search featured cross-category results, engagement-based prioritization, and fuzzy matching.</p>
+              
+              <p>Results: 15% of sessions used search, 10% increase in daily active users, 13% increase in engagement, and 17% increase in research downloads, proving that better discoverability drives scientific collaboration.</p>
             </div>
           </div>
         </div>
