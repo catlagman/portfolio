@@ -390,9 +390,9 @@ margin-bottom: 1rem;
   font-family: $font-sans;
   font-size: 1rem;
   background-color: #FFFFFF;
-  border: none;
+  border: 1px solid rgba(222, 197, 245, .1);
   border-radius: 16px;
-  color: #1A0238;
+  color: $color-text;
   transition: all 0.3s;
 
   &:focus {
