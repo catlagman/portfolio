@@ -50,6 +50,24 @@ $spacing-section: 4rem;
   border-radius: 2em;
   backdrop-filter: blur(10px);
   z-index: 1000;
+  
+  // Gradient border using pseudo-element
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 2em;
+    padding: 2px; // Border width
+    background: linear-gradient(135deg, $gradient-purple 0%, $gradient-pink 50%, $gradient-orange 100%);
+    -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
 }
 
 .logo {
@@ -164,23 +182,71 @@ margin-bottom: 1rem;
   }
 }
 
-.comingSoon {
-  text-align: center;
-  margin-top: 4rem;
+.caseStudies {
+  margin-top: 3rem;
+  display: grid;
+  gap: 2rem;
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.8s ease-out 0.3s, transform 0.8s ease-out 0.3s;
-  
-  p {
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.visible .caseStudies {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.3s;
+}
+
+.caseStudyCard {
+  background: rgba($color-text, 0.03);
+  border: 1px solid rgba($color-text, 0.1);
+  border-radius: 12px;
+  padding: 2rem;
+  text-decoration: none;
+  color: $color-text;
+  transition: all 0.3s;
+  display: block;
+
+  &:hover {
+    background: rgba($color-text, 0.06);
+    border-color: rgba($color-text, 0.2);
+    transform: translateY(-4px);
+  }
+
+  h3 {
+    font-family: $font-serif;
+    font-size: 1.75rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, $gradient-purple 0%, $gradient-pink 50%, $gradient-orange 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .company {
     font-family: $font-sans;
-    font-size: 1.5em;
-    opacity: 0.7;
+    font-size: 0.9rem;
+    opacity: 0.6;
+    margin-bottom: 1rem;
+  }
+
+  .cardSummary {
+    font-family: $font-sans;
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.85;
   }
 }
 
-.visible .comingSoon {
-  opacity: 1;
-  transform: translateY(0);
+@media (max-width: 768px) {
+  .caseStudyCard {
+    padding: 1.5rem;
+
+    h3 {
+      font-size: 1.5rem;
+    }
+  }
 }
 
 .about {
