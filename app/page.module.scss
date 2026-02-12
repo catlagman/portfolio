@@ -3,6 +3,7 @@ $color-primary: #1A0238;
 $color-text: #DEC5F5;
 $color-text-muted: #8B6FA3;
 $color-nav-hover: #3d235a;
+$color-white: #FFF;
 
 // Gradient colors
 $gradient-purple: #C178D3;
@@ -25,7 +26,7 @@ $spacing-section: 4rem;
 
 // Mixins
 @mixin gradient-text {
-  background: linear-gradient(90deg, $gradient-purple 0%, $gradient-purple 25%, $gradient-pink 52%, $gradient-orange 80%, $gradient-orange 100%);
+  background: linear-gradient(90deg, $gradient-purple 0%, $gradient-purple 20%, $gradient-pink 52%, $gradient-orange 80%, $gradient-orange 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -47,7 +48,7 @@ $spacing-section: 4rem;
   align-items: center;
   padding: 1em 1.5em;
   background-color: rgba(255, 255, 255, 0.1);
-  border: 2px solid #6E4E8D;
+  border: 0.80px solid #6E4E8D;
   border-radius: 2em;
   backdrop-filter: blur(10px);
   z-index: 1000;
@@ -227,7 +228,6 @@ margin-bottom: 1rem;
 .cardMeta {
   font-family: $font-sans;
   font-size: 0.9rem;
-  opacity: 0.6;
   margin: 0;
 }
 
@@ -359,7 +359,6 @@ margin-bottom: 1rem;
 /* Contact Form */
 .contactForm {
   max-width: 900px;
-  margin: 3rem auto 0;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
@@ -423,16 +422,15 @@ margin-bottom: 1rem;
   transition: all 0.3s;
   margin-top: 1rem;
   position: relative;
-  background-image: 
-    linear-gradient(#1A0238, #1A0238),
-    linear-gradient(135deg, $gradient-purple 0%, $gradient-pink 50%, $gradient-orange 100%);
+  background-image: linear-gradient(rgba(#1A0238, 0.8), rgba(#1A0238, 0.8)),
+      linear-gradient(135deg, $gradient-purple 0%, $gradient-pink 50%, $gradient-orange 100%);
   background-origin: border-box;
   background-clip: padding-box, border-box;
 
   &:hover:not(:disabled) {
     background-image: 
       linear-gradient(rgba(#1A0238, 0.8), rgba(#1A0238, 0.8)),
-      linear-gradient(135deg, $gradient-purple 0%, $gradient-pink 50%, $gradient-orange 100%);
+      linear-gradient(135deg, $gradient-purple 100%, $gradient-pink 50%, $gradient-orange 0%);
   }
 
   &:active:not(:disabled) {
