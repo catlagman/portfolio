@@ -1,12 +1,43 @@
 'use client'
 
 import Image from 'next/image'
-import Script from 'next/script'
 import { useEffect, useState } from 'react'
 import styles from './page.module.scss'
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState('about')
+  const [formStatus, setFormStatus] = useState('idle') // idle, submitting, success, error
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setFormStatus('submitting')
+
+    const form = e.target
+    const formData = new FormData(form)
+
+    try {
+      const response = await fetch('https://formspree.io/f/mpqjqvzn', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+
+      if (response.ok) {
+        setFormStatus('success')
+        form.reset()
+        // Reset to idle after 5 seconds
+        setTimeout(() => setFormStatus('idle'), 5000)
+      } else {
+        setFormStatus('error')
+        setTimeout(() => setFormStatus('idle'), 5000)
+      }
+    } catch (error) {
+      setFormStatus('error')
+      setTimeout(() => setFormStatus('idle'), 5000)
+    }
+  }
 
   useEffect(() => {
     const sections = document.querySelectorAll('section[id]')
@@ -56,7 +87,7 @@ export default function Home() {
             </a>
           </li>
           <li><a href="#art" className={styles.disabled}>Art</a></li>
-          <li><a href="#photos" className={activeSection === 'photos' ? styles.active : ''}>Photography</a></li>
+          <li><a href="#contact" className={activeSection === 'contact' ? styles.active : ''}>Contact</a></li>
         </ul>
       </nav>
 
@@ -92,18 +123,86 @@ export default function Home() {
         <p className={styles.heroSubtitle}>
           Selected pieces of work. For more, please <a href="mailto:calagman@gmail.com" className={styles.underline}>reach out</a>.
         </p>
-        <div className={styles.comingSoon}>
-          <p>Coming soon</p>
+        
+        <div className={styles.caseStudies}>
+          <a href="/design/kespry" className={styles.caseStudyCard}>
+            <h3>Reimagining Inventory Management</h3>
+            <p className={styles.company}>Kespry, 2018</p>
+            <p className={styles.cardSummary}>Redesigned Kespry's inventory management workspace, increasing engagement 17% and securing a partnership with one of North America's largest aggregate companies.</p>
+          </a>
+
+          <a href="/design/able-co" className={styles.caseStudyCard}>
+            <h3>Helping Scientists Find Things Faster</h3>
+            <p className={styles.company}>Able Co., 2020</p>
+            <p className={styles.cardSummary}>Designed a global search feature that increased research collaboration among Nobel prize-winning cancer scientists by 17%.</p>
+          </a>
         </div>
       </section>
 
-      {/* Photos Section */}
-      <section className={styles.section} id="photos">
-        <h2 className={styles.heroName}>Photography</h2>
+      {/* Contact Section */}
+      <section className={styles.section} id="contact">
+        <h2 className={styles.heroName}>Contact</h2>
         <p className={styles.heroSubtitle}>
-          Dreamy photos of some of my past clients
+          Send me a message and say hello.
         </p>
-        <div id="curator-feed-default-feed-layout"></div>
+        
+        <form className={styles.contactForm} onSubmit={handleSubmit}>
+          <div className={styles.formGroup}>
+            <label htmlFor="name">Name</label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              required 
+              className={styles.formInput}
+              disabled={formStatus === 'submitting'}
+            />
+          </div>
+
+          <div className={styles.formGroup}>
+            <label htmlFor="email">Email</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              required 
+              className={styles.formInput}
+              disabled={formStatus === 'submitting'}
+            />
+          </div>
+
+          <div className={styles.formGroup}>
+            <label htmlFor="message">Message</label>
+            <textarea 
+              id="message" 
+              name="message" 
+              rows="8" 
+              required 
+              className={styles.formTextarea}
+              disabled={formStatus === 'submitting'}
+            ></textarea>
+          </div>
+
+          <button 
+            type="submit" 
+            className={styles.submitButton}
+            disabled={formStatus === 'submitting'}
+          >
+            {formStatus === 'submitting' ? 'Sending...' : 'Send'}
+          </button>
+
+          {formStatus === 'success' && (
+            <div className={styles.successMessage}>
+              ✓ Message sent successfully! I'll get back to you soon.
+            </div>
+          )}
+
+          {formStatus === 'error' && (
+            <div className={styles.errorMessage}>
+              ✗ Something went wrong. Please try again or email me directly at calagman@gmail.com
+            </div>
+          )}
+        </form>
       </section>
 
       {/* Footer */}
@@ -115,21 +214,6 @@ export default function Home() {
           Last updated February 2026
         </p>
       </footer>
-
-      {/* Curator.io Script */}
-      <Script
-        id="curator-feed-script"
-        strategy="lazyOnload"
-        dangerouslySetInnerHTML={{
-          __html: `
-            (function(){
-              var i,e,d=document,s="script";i=d.createElement("script");i.async=1;i.charset="UTF-8";
-              i.src="https://cdn.curator.io/published/498605c4-fd0b-442f-831c-94f0da646ce6.js";
-              e=d.getElementsByTagName(s)[0];e.parentNode.insertBefore(i, e);
-            })();
-          `
-        }}
-      />
     </main>
   )
 }

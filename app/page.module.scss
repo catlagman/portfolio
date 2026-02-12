@@ -357,6 +357,128 @@ margin-bottom: 1rem;
   }
 }
 
+/* Contact Form */
+.contactForm {
+  max-width: 900px;
+  margin: 3rem auto 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.visible .contactForm {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.3s;
+}
+
+.formGroup {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  label {
+    font-family: $font-sans;
+    font-size: 1.25rem;
+    color: #DEC5F5;
+  }
+}
+
+.formInput,
+.formTextarea {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  font-family: $font-sans;
+  font-size: 1rem;
+  background-color: #FFFFFF;
+  border: none;
+  border-radius: 16px;
+  color: #1A0238;
+  transition: all 0.3s;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba($gradient-pink, 0.3);
+  }
+
+  &::placeholder {
+    color: rgba(#1A0238, 0.4);
+  }
+}
+
+.formTextarea {
+  resize: vertical;
+  min-height: 250px;
+}
+
+.submitButton {
+  padding: 1rem 3rem;
+  font-family: $font-sans;
+  font-size: 1.125rem;
+  color: #DEC5F5;
+  background-color: transparent;
+  border: 2px solid transparent;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 1rem;
+  position: relative;
+  background-image: 
+    linear-gradient(#1A0238, #1A0238),
+    linear-gradient(135deg, $gradient-purple 0%, $gradient-pink 50%, $gradient-orange 100%);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  &:hover:not(:disabled) {
+    background-image: 
+      linear-gradient(rgba(#1A0238, 0.8), rgba(#1A0238, 0.8)),
+      linear-gradient(135deg, $gradient-purple 0%, $gradient-pink 50%, $gradient-orange 100%);
+  }
+
+  &:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.successMessage,
+.errorMessage {
+  margin-top: 1.5rem;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  font-family: $font-sans;
+  font-size: 1rem;
+  animation: slideIn 0.3s ease-out;
+}
+
+.successMessage {
+  background-color: rgba(#4CAF50, 0.15);
+  border: 1px solid rgba(#4CAF50, 0.4);
+  color: #A5D6A7;
+}
+
+.errorMessage {
+  background-color: rgba(#F44336, 0.15);
+  border: 1px solid rgba(#F44336, 0.4);
+  color: #EF9A9A;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
   .logo {
@@ -432,5 +554,14 @@ margin-bottom: 1rem;
     h2 {
      font-size: 2.5em;
     }
+  }
+
+  .formGroup {
+  .formGroup {
+    margin-bottom: 1.5rem;
+  }
+
+  .submitButton {
+    width: 100%;
   }
 }
