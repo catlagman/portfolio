@@ -194,7 +194,7 @@ margin-bottom: 1rem;
 
   &:hover {
     background: rgba($color-text, 0.06);
-    border-color: rgba($color-text, 0.2);
+    border: 3px solid rgba($color-text, 0.2);
     transform: translateY(-4px);
   }
 }
@@ -428,9 +428,8 @@ margin-bottom: 1rem;
   background-clip: padding-box, border-box;
 
   &:hover:not(:disabled) {
-    background-image: 
-      linear-gradient(rgba(#1A0238, 0.8), rgba(#1A0238, 0.8)),
-      linear-gradient(135deg, $gradient-purple 100%, $gradient-pink 50%, $gradient-orange 0%);
+    border: 3px solid transparent;
+    transform: translateY(-4px);
   }
 
   &:active:not(:disabled) {
