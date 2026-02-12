@@ -7,6 +7,7 @@ import styles from './page.module.scss'
 export default function Home() {
   const [activeSection, setActiveSection] = useState('about')
   const [formStatus, setFormStatus] = useState('idle') // idle, submitting, success, error
+  const [openModal, setOpenModal] = useState(null) // null, 'kespry', 'able-co'
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -124,20 +125,88 @@ export default function Home() {
           Selected pieces of work. For more, please <a href="mailto:calagman@gmail.com" className={styles.underline}>reach out</a>.
         </p>
         
-        <div className={styles.caseStudies}>
-          <a href="/design/kespry" className={styles.caseStudyCard}>
-            <h3>Reimagining Inventory Management</h3>
-            <p className={styles.company}>Kespry, 2018</p>
-            <p className={styles.cardSummary}>Redesigned Kespry's inventory management workspace, increasing engagement 17% and securing a partnership with one of North America's largest aggregate companies.</p>
-          </a>
+        <div className={styles.caseStudyGrid}>
+          <div className={styles.caseStudyCard} onClick={() => setOpenModal('kespry')}>
+            <div className={styles.cardImage}>
+              <img src="/kespry-thumbnail.png" alt="Kespry Inventory Management" />
+            </div>
+            <div className={styles.cardContent}>
+              <h3>Reimagining Inventory Management</h3>
+              <p className={styles.cardMeta}>Kespry · Research, Strategy, Interaction · 2018</p>
+            </div>
+          </div>
 
-          <a href="/design/able-co" className={styles.caseStudyCard}>
-            <h3>Helping Scientists Find Things Faster</h3>
-            <p className={styles.company}>Able Co., 2020</p>
-            <p className={styles.cardSummary}>Designed a global search feature that increased research collaboration among Nobel prize-winning cancer scientists by 17%.</p>
-          </a>
+          <div className={styles.caseStudyCard} onClick={() => setOpenModal('able-co')}>
+            <div className={styles.cardImage}>
+              <img src="/able-co-thumbnail.png" alt="Able Co. Global Search" />
+            </div>
+            <div className={styles.cardContent}>
+              <h3>Supporting epidemiologists to find relevant cancer research</h3>
+              <p className={styles.cardMeta}>Able Co. · Research, Strategy, Interaction · 2019</p>
+            </div>
+          </div>
+
+          <div className={styles.caseStudyCard} onClick={() => setOpenModal('aws')}>
+            <div className={styles.cardImage}>
+              <img src="/aws-thumbnail.jpg" alt="AWS Research Studies" />
+            </div>
+            <div className={styles.cardContent}>
+              <h3>Strategic research studies that have informed design strategy and beyond</h3>
+              <p className={styles.cardMeta}>AWS · Research, Strategy · 2023</p>
+            </div>
+          </div>
         </div>
       </section>
+
+      {/* Case Study Modals */}
+      {openModal === 'kespry' && (
+        <div className={styles.modalOverlay} onClick={() => setOpenModal(null)}>
+          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+            <button className={styles.modalClose} onClick={() => setOpenModal(null)}>×</button>
+            <h2 className={styles.modalTitle}>Reimagining Inventory Management</h2>
+            <p className={styles.modalMeta}>Able Co. · Research, Strategy, Interaction · 2019</p>
+            <div className={styles.modalBody}>
+              <p>As Kespry's first design hire, I led the redesign of our inventory management workspace, a flagship project that transformed how the company approached product development. The initial workspace had low engagement and didn't meet customer needs, so I conducted extensive research with aggregate companies where I discovered Inventory Managers spent 3 weeks per quarter manually reconciling drone data with Enterprise Resource Planning (ERP) systems in Excel. I designed and validated three concepts ranging from low to high effort with customers, and landed on an approach that integrated into their existing workflows rather than requiring any organizational changes. The redesigned workspace was organized by site and flagged discrepancies through actionable alerts. This increased engagement by 17% within three months and secured a partnership with Summit Materials, one of North America's largest aggregate companies. This project also established user research as standard practice at Kespry and demonstrated how design drives business outcomes.</p>
+              
+              <div className={styles.modalImage}>
+                <img src="/kespry-image1.jpg" alt="Kespry research" />
+                <p className={styles.imageCaption}>Picture description</p>
+              </div>
+
+              <div className={styles.modalImage}>
+                <img src="/kespry-image2.jpg" alt="Kespry design" />
+                <p className={styles.imageCaption}>Picture description</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {openModal === 'able-co' && (
+        <div className={styles.modalOverlay} onClick={() => setOpenModal(null)}>
+          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+            <button className={styles.modalClose} onClick={() => setOpenModal(null)}>×</button>
+            <h2 className={styles.modalTitle}>Supporting epidemiologists to find relevant cancer research</h2>
+            <p className={styles.modalMeta}>Able Co. · Research, Strategy, Interaction · 2019</p>
+            <div className={styles.modalBody}>
+              <p>At Able Co., I designed a global search feature for the Parker Institute of Cancer Immunotherapy's platform, where Nobel prize-winning scientists collaborate to cure cancer. Scientists struggled to find information because search was siloed within specific product areas. Despite agency constraints—a 2-month timeline and stakeholder-prescribed solution—I evaluated three interaction concepts and recommended a search takeover approach that balanced usability with technical feasibility. The redesigned search featured cross-category results, engagement-based prioritization, and fuzzy matching. Results: 15% of sessions used search, 10% increase in daily active users, 13% increase in engagement, and 17% increase in research downloads, proving that better discoverability drives scientific collaboration.</p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {openModal === 'aws' && (
+        <div className={styles.modalOverlay} onClick={() => setOpenModal(null)}>
+          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+            <button className={styles.modalClose} onClick={() => setOpenModal(null)}>×</button>
+            <h2 className={styles.modalTitle}>Strategic research studies that have informed design strategy and beyond</h2>
+            <p className={styles.modalMeta}>AWS · Research, Strategy · 2023</p>
+            <div className={styles.modalBody}>
+              <p>Content coming soon for AWS research project...</p>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Contact Section */}
       <section className={styles.section} id="contact">
