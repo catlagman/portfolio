@@ -183,11 +183,11 @@ export default function Home() {
             <h2 className={styles.modalTitle}>Supporting epidemiologists to find relevant cancer research</h2>
             <p className={styles.modalMeta}>Able Co. · Research, Strategy, Interaction · 2019</p>
             <div className={styles.modalBody}>
-              <p>At Able Co., I designed a global search feature for the Parker Institute of Cancer Immunotherapy's platform, where Nobel prize-winning scientists collaborate to cure cancer. Scientists struggled to find information because search was siloed within specific product areas.</p>
+              <p>At Able Co., I led designed for a global search feature for [redacted]'s platform, where Nobel prize-winning scientists collaborate to cure cancer. Scientists struggled to find relevant research papers due to the search feature being siloed within specific product areas.</p>
               
-              <p>Despite agency constraints—a 2-month timeline and stakeholder-prescribed solution—I evaluated three interaction concepts and recommended a search takeover approach that balanced usability with technical feasibility. The redesigned search featured cross-category results, engagement-based prioritization, and fuzzy matching.</p>
+              <p>Despite agency constraints, a 2-month timeline, and stakeholder-prescribed solution, I evaluated three interaction concepts that varied in effort, scope, and feasibility, and landed on a solution that resonated well with the stakeholder, Product Manager, and our engineering team. The redesigned search featured cross-category results, engagement-based prioritization, and fuzzy matching.</p>
               
-              <p>Results: 15% of sessions used search, 10% increase in daily active users, 13% increase in engagement, and 17% increase in research downloads, proving that better discoverability drives scientific collaboration.</p>
+              <p>Results consisted of 15% of user sessions used search, 10% increase in daily active users, 13% increase in engagement, and 17% increase in research downloads, signaling that scientists were download and reading each other's work.</p>
             </div>
           </div>
         </div>
