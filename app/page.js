@@ -170,7 +170,7 @@ export default function Home() {
 
           <div className={styles.caseStudyCard} onClick={() => openCaseStudy('aws')}>
             <div className={styles.cardImage}>
-              <img src="/aws-thumbnail.png" alt="AWS Research Studies" />
+              <img src="/aws-thumbnail-1.png" alt="AWS Research Studies" />
             </div>
             <div className={styles.cardContent}>
               <h3>Strategic research studies that have informed design strategy and beyond</h3>
