@@ -1,5 +1,8 @@
+'use client'
+
 import './globals.css'
 import Script from 'next/script'
+import { useEffect } from 'react'
 
 export const metadata = {
   title: 'Cat Lagman - Product Designer',
@@ -15,11 +18,43 @@ export const metadata = {
   manifest: '/site.webmanifest',
 }
 
+function MouseTracker() {
+  useEffect(() => {
+    let targetX = 50
+    let targetY = 50
+    let currentX = 50
+    let currentY = 50
+    let animationId
+
+    const handleMouseMove = (e) => {
+      targetX = (e.clientX / window.innerWidth) * 100
+      targetY = (e.clientY / window.innerHeight) * 100
+    }
+
+    const animate = () => {
+      currentX += (targetX - currentX) * 0.05
+      currentY += (targetY - currentY) * 0.05
+      document.body.style.setProperty('--mouse-x', `${currentX}%`)
+      document.body.style.setProperty('--mouse-y', `${currentY}%`)
+      animationId = requestAnimationFrame(animate)
+    }
+
+    window.addEventListener('mousemove', handleMouseMove)
+    animationId = requestAnimationFrame(animate)
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove)
+      cancelAnimationFrame(animationId)
+    }
+  }, [])
+
+  return null
+}
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-3KFEETBSX0"
           strategy="afterInteractive"
@@ -33,7 +68,10 @@ export default function RootLayout({ children }) {
           `}
         </Script>
       </head>
-      <body>{children}</body>
+      <body>
+        <MouseTracker />
+        {children}
+      </body>
     </html>
   )
 }
