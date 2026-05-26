@@ -20,10 +20,9 @@ export const metadata = {
 
 function MouseTracker() {
   useEffect(() => {
-    let targetX = 50
-    let targetY = 50
-    let currentX = 50
-    let currentY = 50
+    let targetX = 50, targetY = 50
+    let currentX = 50, currentY = 50
+    let currentX2 = 30, currentY2 = 70
     let animationId
 
     const handleMouseMove = (e) => {
@@ -32,10 +31,16 @@ function MouseTracker() {
     }
 
     const animate = () => {
-      currentX += (targetX - currentX) * 0.05
-      currentY += (targetY - currentY) * 0.05
+      currentX += (targetX - currentX) * 0.06
+      currentY += (targetY - currentY) * 0.06
+      // Second glow follows with more lag for a trailing effect
+      currentX2 += (currentX - currentX2) * 0.03
+      currentY2 += (currentY - currentY2) * 0.03
+
       document.body.style.setProperty('--mouse-x', `${currentX}%`)
       document.body.style.setProperty('--mouse-y', `${currentY}%`)
+      document.body.style.setProperty('--mouse-x2', `${currentX2}%`)
+      document.body.style.setProperty('--mouse-y2', `${currentY2}%`)
       animationId = requestAnimationFrame(animate)
     }
 

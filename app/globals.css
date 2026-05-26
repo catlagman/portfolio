@@ -12,10 +12,11 @@ html {
 
 body {
   font-family: 'Playfair Display', serif;
-  background: radial-gradient(ellipse at var(--mouse-x, 50%) var(--mouse-y, 50%), #6B0F6E 0%, #3D0550 30%, #1A0238 60%, #2D0A4E 100%),
-              linear-gradient(-45deg, #1A0238, #6B0F6E, #2D0A4E, #8B1A6B, #1A0238, #3D0550);
-  background-size: 100% 100%, 600% 600%;
-  background-blend-mode: screen;
+  background: 
+    radial-gradient(ellipse 80% 80% at var(--mouse-x, 50%) var(--mouse-y, 50%), #C178D3 0%, #8B1A6B 25%, transparent 70%),
+    radial-gradient(ellipse 60% 60% at var(--mouse-x2, 30%) var(--mouse-y2, 70%), #E2329C 0%, #6B0F6E 30%, transparent 65%),
+    linear-gradient(-45deg, #1A0238, #6B0F6E, #2D0A4E, #8B1A6B, #1A0238, #3D0550);
+  background-size: 100% 100%, 100% 100%, 600% 600%;
   animation: gradientShift 12s ease infinite;
   color: #DEC5F5;
   line-height: 1.6;
@@ -37,21 +38,11 @@ body::before {
 }
 
 @keyframes gradientShift {
-  0% {
-    background-position: 0% 50%, 0% 50%;
-  }
-  25% {
-    background-position: 0% 50%, 50% 0%;
-  }
-  50% {
-    background-position: 0% 50%, 100% 50%;
-  }
-  75% {
-    background-position: 0% 50%, 50% 100%;
-  }
-  100% {
-    background-position: 0% 50%, 0% 50%;
-  }
+  0%   { background-position: 0% 50%, 0% 50%, 0% 50%; }
+  25%  { background-position: 0% 50%, 0% 50%, 50% 0%; }
+  50%  { background-position: 0% 50%, 0% 50%, 100% 50%; }
+  75%  { background-position: 0% 50%, 0% 50%, 50% 100%; }
+  100% { background-position: 0% 50%, 0% 50%, 0% 50%; }
 }
 
 h1, h2, h3, h4, h5, h6 {
