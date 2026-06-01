@@ -11,6 +11,41 @@ export default function Home() {
   const [openModal, setOpenModal] = useState(null)
   const [modalContent, setModalContent] = useState(null)
   const [modalLoading, setModalLoading] = useState(false)
+  const [isUnlocked, setIsUnlocked] = useState(false)
+  const [showPasswordPrompt, setShowPasswordPrompt] = useState(false)
+  const [passwordInput, setPasswordInput] = useState('')
+  const [passwordError, setPasswordError] = useState(false)
+  const [pendingSlug, setPendingSlug] = useState(null)
+
+  useEffect(() => {
+    const unlocked = localStorage.getItem('portfolio_unlocked')
+    if (unlocked === 'true') setIsUnlocked(true)
+  }, [])
+
+  const handleCardClick = (slug) => {
+    if (isUnlocked) {
+      openCaseStudy(slug)
+    } else {
+      setPendingSlug(slug)
+      setShowPasswordPrompt(true)
+      setPasswordInput('')
+      setPasswordError(false)
+    }
+  }
+
+  const handlePasswordSubmit = (e) => {
+    e.preventDefault()
+    if (passwordInput === 'clagmandesign2026') {
+      setIsUnlocked(true)
+      localStorage.setItem('portfolio_unlocked', 'true')
+      setShowPasswordPrompt(false)
+      openCaseStudy(pendingSlug)
+      setPendingSlug(null)
+    } else {
+      setPasswordError(true)
+      setPasswordInput('')
+    }
+  }
 
   const openCaseStudy = async (slug) => {
     setOpenModal(slug)
@@ -148,7 +183,7 @@ export default function Home() {
         </p>
         
         <div className={styles.caseStudyGrid}>
-          <div className={styles.caseStudyCard} onClick={() => openCaseStudy('kespry')}>
+          <div className={styles.caseStudyCard} onClick={() => handleCardClick('kespry')}>
             <div className={styles.cardImage}>
               <img src="/kespry-thumbnail.png" alt="Kespry Inventory Management" />
             </div>
@@ -158,7 +193,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className={styles.caseStudyCard} onClick={() => openCaseStudy('able-co')}>
+          <div className={styles.caseStudyCard} onClick={() => handleCardClick('able-co')}>
             <div className={styles.cardImage}>
               <img src="/able-co-thumbnail.png" alt="Able Co. Global Search" />
             </div>
@@ -168,7 +203,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className={styles.caseStudyCard} onClick={() => openCaseStudy('aws')}>
+          <div className={styles.caseStudyCard} onClick={() => handleCardClick('aws')}>
             <div className={styles.cardImage}>
               <img src="/aws-thumbnail-1.png" alt="AWS Research Studies" />
             </div>
@@ -180,7 +215,33 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Case Study Modal - Powered by Notion */}
+      {/* Password Prompt */}
+      {showPasswordPrompt && (
+        <div className={styles.modalOverlay} onClick={() => setShowPasswordPrompt(false)}>
+          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()} style={{ maxWidth: '400px' }}>
+            <button className={styles.modalClose} onClick={() => setShowPasswordPrompt(false)}>×</button>
+            <h2 className={styles.modalTitle}>Protected Work</h2>
+            <p style={{ marginBottom: '1.5rem', opacity: 0.75 }}>Enter the password to view this case study.</p>
+            <form onSubmit={handlePasswordSubmit}>
+              <input
+                type="password"
+                value={passwordInput}
+                onChange={(e) => { setPasswordInput(e.target.value); setPasswordError(false) }}
+                placeholder="Password"
+                autoFocus
+                className={styles.formInput}
+                style={{ width: '100%', marginBottom: '1rem' }}
+              />
+              {passwordError && (
+                <p style={{ color: '#ff6b6b', marginBottom: '1rem', fontSize: '0.9rem' }}>Incorrect password. Please try again.</p>
+              )}
+              <button type="submit" className={styles.submitButton}>Unlock</button>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Case Study Modal */}
       {openModal && (
         <div className={styles.modalOverlay} onClick={closeModal}>
           <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
