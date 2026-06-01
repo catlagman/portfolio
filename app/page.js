@@ -16,10 +16,18 @@ export default function Home() {
   const [passwordInput, setPasswordInput] = useState('')
   const [passwordError, setPasswordError] = useState(false)
   const [pendingSlug, setPendingSlug] = useState(null)
+  const [caseStudies, setCaseStudies] = useState([])
 
   useEffect(() => {
     const unlocked = localStorage.getItem('portfolio_unlocked')
     if (unlocked === 'true') setIsUnlocked(true)
+
+    fetch('/api/case-studies')
+      .then((res) => res.json())
+      .then((data) => {
+        if (Array.isArray(data)) setCaseStudies(data)
+      })
+      .catch((err) => console.error('Error loading case studies:', err))
   }, [])
 
   const handleCardClick = (slug) => {
@@ -163,26 +171,14 @@ export default function Home() {
           Selected pieces of work. For more, please <a href="mailto:calagman@gmail.com" className={styles.underline}>reach out</a>.
         </p>
         <div className={styles.caseStudyGrid}>
-          <div className={styles.caseStudyCard} onClick={() => handleCardClick('aws')}>
-            <div className={styles.cardContent}>
-              <h3>Strategic research studies that have informed design strategy and beyond</h3>
-              <p className={styles.cardMeta}>AWS · Research, Strategy · 2023</p>
+          {caseStudies.map((study) => (
+            <div key={study.slug} className={styles.caseStudyCard} onClick={() => handleCardClick(study.slug)}>
+              <div className={styles.cardContent}>
+                <h3>{study.title}</h3>
+                <p className={styles.cardMeta}>{study.company} · {study.role} · {study.year}</p>
+              </div>
             </div>
-          </div>
-
-          <div className={styles.caseStudyCard} onClick={() => handleCardClick('able-co')}>
-            <div className={styles.cardContent}>
-              <h3>Supporting epidemiologists to find relevant cancer research</h3>
-              <p className={styles.cardMeta}>Able Co. · Research, Strategy, Interaction · 2019</p>
-            </div>
-          </div>
-
-          <div className={styles.caseStudyCard} onClick={() => handleCardClick('kespry')}>
-            <div className={styles.cardContent}>
-              <h3>Reimagining Inventory Management</h3>
-              <p className={styles.cardMeta}>Kespry · Research, Strategy, Interaction · 2018</p>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
