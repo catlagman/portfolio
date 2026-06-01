@@ -55,7 +55,6 @@ export default function Home() {
     try {
       const response = await fetch(`/api/case-study/${slug}`)
       const data = await response.json()
-      
       if (response.ok) {
         setModalContent(data)
       } else {
@@ -76,19 +75,14 @@ export default function Home() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setFormStatus('submitting')
-
     const form = e.target
     const formData = new FormData(form)
-
     try {
       const response = await fetch('https://formspree.io/f/mpqjqvzn', {
         method: 'POST',
         body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
+        headers: { 'Accept': 'application/json' }
       })
-
       if (response.ok) {
         setFormStatus('success')
         form.reset()
@@ -105,13 +99,11 @@ export default function Home() {
 
   useEffect(() => {
     const sections = document.querySelectorAll('section[id]')
-    
     const observerOptions = {
       root: null,
       rootMargin: '-50% 0px -50% 0px',
       threshold: 0
     }
-
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -120,19 +112,12 @@ export default function Home() {
         }
       })
     }, observerOptions)
-
     sections.forEach((section) => observer.observe(section))
-
     const heroSection = document.getElementById('about')
     if (heroSection) {
-      setTimeout(() => {
-        heroSection.classList.add(styles.visible)
-      }, 100)
+      setTimeout(() => { heroSection.classList.add(styles.visible) }, 100)
     }
-
-    return () => {
-      sections.forEach((section) => observer.unobserve(section))
-    }
+    return () => { sections.forEach((section) => observer.unobserve(section)) }
   }, [])
 
   return (
@@ -156,16 +141,13 @@ export default function Home() {
         <p className={styles.heroSubtitle}>
           A multi-disciplinary UX/Product Designer and artist based in San Francisco, CA
         </p>
-
         <div className={styles.about}>
           <p className={styles.aboutText}>
             I'm a designer specializing in visual design, with several years of experience across startups and corporate environments. I leverage user research and data to deeply understand user needs and guide design decisions to influence product strategy. I thrive on continuous experimentation, iteration, and optimization to ensure we're building the best experience possible.
           </p>
-          
           <p className={styles.aboutText}>
             I'm currently working at AWS to support AWS employees' needs and workflows in Sales and Sales Operations. When I'm not working, I'm hiking outside with my beloved dog/sidekick, Louie, painting whenever I feel a creative spark, snapping photos, or trying a restaurant in a different neighborhood for dinner.
           </p>
-      
           <div className={styles.links}>
             <a href="mailto:calagman@gmail.com" className={styles.link}>Email me</a>
             <span className={styles.linkSeparator}>·</span>
@@ -181,13 +163,13 @@ export default function Home() {
         <p className={styles.heroSubtitle}>
           Selected pieces of work. For more, please <a href="mailto:calagman@gmail.com" className={styles.underline}>reach out</a>.
         </p>
-        
         <div className={styles.caseStudyGrid}>
           <div className={styles.caseStudyCard} onClick={() => handleCardClick('kespry')}>
             <div className={styles.cardContent}>
               <h3>Reimagining Inventory Management</h3>
               <p className={styles.cardMeta}>Kespry · Research, Strategy, Interaction · 2018</p>
             </div>
+            <span className={styles.cardArrow}>→</span>
           </div>
 
           <div className={styles.caseStudyCard} onClick={() => handleCardClick('able-co')}>
@@ -195,6 +177,7 @@ export default function Home() {
               <h3>Supporting epidemiologists to find relevant cancer research</h3>
               <p className={styles.cardMeta}>Able Co. · Research, Strategy, Interaction · 2019</p>
             </div>
+            <span className={styles.cardArrow}>→</span>
           </div>
 
           <div className={styles.caseStudyCard} onClick={() => handleCardClick('aws')}>
@@ -202,6 +185,7 @@ export default function Home() {
               <h3>Strategic research studies that have informed design strategy and beyond</h3>
               <p className={styles.cardMeta}>AWS · Research, Strategy · 2023</p>
             </div>
+            <span className={styles.cardArrow}>→</span>
           </div>
         </div>
       </section>
@@ -212,7 +196,7 @@ export default function Home() {
           <div className={styles.modalContent} onClick={(e) => e.stopPropagation()} style={{ maxWidth: '400px' }}>
             <button className={styles.modalClose} onClick={() => setShowPasswordPrompt(false)}>×</button>
             <h2 className={styles.modalTitle}>Protected Work</h2>
-            <p style={{ marginBottom: '1.5rem', opacity: 0.75 }}>Enter the password to view this case study.</p>
+            <p style={{ marginBottom: '1.5rem', opacity: 0.6, fontFamily: 'Instrument Sans, sans-serif' }}>Enter the password to view this case study.</p>
             <form onSubmit={handlePasswordSubmit}>
               <input
                 type="password"
@@ -224,7 +208,7 @@ export default function Home() {
                 style={{ width: '100%', marginBottom: '1rem' }}
               />
               {passwordError && (
-                <p style={{ color: '#ff6b6b', marginBottom: '1rem', fontSize: '0.9rem' }}>Incorrect password. Please try again.</p>
+                <p style={{ color: '#ff6b6b', marginBottom: '1rem', fontSize: '0.9rem', fontFamily: 'Instrument Sans, sans-serif' }}>Incorrect password. Please try again.</p>
               )}
               <button type="submit" className={styles.submitButton}>Unlock</button>
             </form>
@@ -237,25 +221,18 @@ export default function Home() {
         <div className={styles.modalOverlay} onClick={closeModal}>
           <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
             <button className={styles.modalClose} onClick={closeModal}>×</button>
-            
             {modalLoading ? (
-              <div className={styles.modalLoading}>
-                <p>Loading...</p>
-              </div>
+              <div className={styles.modalLoading}><p>Loading...</p></div>
             ) : modalContent ? (
               <>
                 <h2 className={styles.modalTitle}>{modalContent.title}</h2>
-                <p className={styles.modalMeta}>
-                  {modalContent.company} · {modalContent.role} · {modalContent.year}
-                </p>
+                <p className={styles.modalMeta}>{modalContent.company} · {modalContent.role} · {modalContent.year}</p>
                 <div className={styles.modalBody}>
                   <ReactMarkdown>{modalContent.content}</ReactMarkdown>
                 </div>
               </>
             ) : (
-              <div className={styles.modalError}>
-                <p>Unable to load case study. Please try again.</p>
-              </div>
+              <div className={styles.modalError}><p>Unable to load case study. Please try again.</p></div>
             )}
           </div>
         </div>
@@ -263,76 +240,31 @@ export default function Home() {
 
       <section className={styles.section} id="contact">
         <h2 className={styles.heroName}>Contact</h2>
-        <p className={styles.heroSubtitle}>
-          Send me a message and say hello.
-        </p>
-        
+        <p className={styles.heroSubtitle}>Send me a message and say hello.</p>
         <form className={styles.contactForm} onSubmit={handleSubmit}>
           <div className={styles.formGroup}>
             <label htmlFor="name">Name</label>
-            <input 
-              type="text" 
-              id="name" 
-              name="name" 
-              required 
-              className={styles.formInput}
-              disabled={formStatus === 'submitting'}
-            />
+            <input type="text" id="name" name="name" required className={styles.formInput} disabled={formStatus === 'submitting'} />
           </div>
-
           <div className={styles.formGroup}>
             <label htmlFor="email">Email</label>
-            <input 
-              type="email" 
-              id="email" 
-              name="email" 
-              required 
-              className={styles.formInput}
-              disabled={formStatus === 'submitting'}
-            />
+            <input type="email" id="email" name="email" required className={styles.formInput} disabled={formStatus === 'submitting'} />
           </div>
-
           <div className={styles.formGroup}>
             <label htmlFor="message">Message</label>
-            <textarea 
-              id="message" 
-              name="message" 
-              rows="8" 
-              required 
-              className={styles.formTextarea}
-              disabled={formStatus === 'submitting'}
-            ></textarea>
+            <textarea id="message" name="message" rows="8" required className={styles.formTextarea} disabled={formStatus === 'submitting'}></textarea>
           </div>
-
-          <button 
-            type="submit" 
-            className={styles.submitButton}
-            disabled={formStatus === 'submitting'}
-          >
+          <button type="submit" className={styles.submitButton} disabled={formStatus === 'submitting'}>
             {formStatus === 'submitting' ? 'Sending...' : 'Send'}
           </button>
-
-          {formStatus === 'success' && (
-            <div className={styles.successMessage}>
-              ✓ Message sent successfully! I'll get back to you soon.
-            </div>
-          )}
-
-          {formStatus === 'error' && (
-            <div className={styles.errorMessage}>
-              ✗ Something went wrong. Please try again or email me directly at calagman@gmail.com
-            </div>
-          )}
+          {formStatus === 'success' && <div className={styles.successMessage}>✓ Message sent successfully! I'll get back to you soon.</div>}
+          {formStatus === 'error' && <div className={styles.errorMessage}>✗ Something went wrong. Please try again or email me directly at calagman@gmail.com</div>}
         </form>
       </section>
 
       <footer className={styles.footer}>
         <p>© 2026 Catherine Lagman. All content and images are reserved.</p>
-        <p>
-          Made in San Francisco
-          <span className={styles.linkSeparator}>·</span>
-          Last updated February 2026
-        </p>
+        <p>Made in San Francisco<span className={styles.linkSeparator}>·</span>Last updated February 2026</p>
       </footer>
     </main>
   )
