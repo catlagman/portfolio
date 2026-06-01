@@ -45,16 +45,21 @@ export default function ParticleCanvas() {
         const dx = mouseX - p.x
         const dy = mouseY - p.y
         const dist = Math.sqrt(dx * dx + dy * dy)
-        if (dist < 200) {
-          p.x -= (dx / dist) * 0.4
-          p.y -= (dy / dist) * 0.4
+
+        // Attract toward cursor within 250px
+        if (dist < 250 && dist > 0) {
+          p.x += (dx / dist) * 0.8
+          p.y += (dy / dist) * 0.8
         }
+
         p.x += p.speedX
         p.y += p.speedY
+
         if (p.x < 0) p.x = width
         if (p.x > width) p.x = 0
         if (p.y < 0) p.y = height
         if (p.y > height) p.y = 0
+
         ctx.beginPath()
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2)
         ctx.fillStyle = p.color
