@@ -184,9 +184,6 @@ export default function Home() {
         
         <div className={styles.caseStudyGrid}>
           <div className={styles.caseStudyCard} onClick={() => handleCardClick('kespry')}>
-            <div className={styles.cardImage}>
-              <img src="/kespry-thumbnail.png" alt="Kespry Inventory Management" />
-            </div>
             <div className={styles.cardContent}>
               <h3>Reimagining Inventory Management</h3>
               <p className={styles.cardMeta}>Kespry · Research, Strategy, Interaction · 2018</p>
@@ -194,9 +191,6 @@ export default function Home() {
           </div>
 
           <div className={styles.caseStudyCard} onClick={() => handleCardClick('able-co')}>
-            <div className={styles.cardImage}>
-              <img src="/able-co-thumbnail.png" alt="Able Co. Global Search" />
-            </div>
             <div className={styles.cardContent}>
               <h3>Supporting epidemiologists to find relevant cancer research</h3>
               <p className={styles.cardMeta}>Able Co. · Research, Strategy, Interaction · 2019</p>
@@ -204,9 +198,6 @@ export default function Home() {
           </div>
 
           <div className={styles.caseStudyCard} onClick={() => handleCardClick('aws')}>
-            <div className={styles.cardImage}>
-              <img src="/aws-thumbnail-1.png" alt="AWS Research Studies" />
-            </div>
             <div className={styles.cardContent}>
               <h3>Strategic research studies that have informed design strategy and beyond</h3>
               <p className={styles.cardMeta}>AWS · Research, Strategy · 2023</p>
