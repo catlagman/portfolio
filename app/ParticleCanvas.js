@@ -12,6 +12,7 @@ export default function ParticleCanvas() {
     let height = canvas.height = window.innerHeight
     let mouseX = width / 2
     let mouseY = height / 2
+    const isMobile = window.matchMedia('(hover: none)').matches
 
     const colors = ['#C178D3', '#E2329C', '#DEC5F5', '#8B6FA3', '#FE7325']
 
@@ -21,8 +22,8 @@ export default function ParticleCanvas() {
       size: Math.random() * 2 + 0.5,
       color: colors[Math.floor(Math.random() * colors.length)],
       opacity: Math.random() * 0.5 + 0.1,
-      speedX: (Math.random() - 0.5) * 0.3,
-      speedY: (Math.random() - 0.5) * 0.3,
+      speedX: (Math.random() - 0.5) * 0.4,
+      speedY: (Math.random() - 0.5) * 0.4,
     }))
 
     const handleMouseMove = (e) => {
@@ -35,21 +36,23 @@ export default function ParticleCanvas() {
       height = canvas.height = window.innerHeight
     }
 
-    window.addEventListener('mousemove', handleMouseMove)
+    if (!isMobile) {
+      window.addEventListener('mousemove', handleMouseMove)
+    }
     window.addEventListener('resize', handleResize)
 
     let animationId
     const animate = () => {
       ctx.clearRect(0, 0, width, height)
       particles.forEach((p) => {
-        const dx = mouseX - p.x
-        const dy = mouseY - p.y
-        const dist = Math.sqrt(dx * dx + dy * dy)
-
-        // Attract toward cursor within 250px
-        if (dist < 250 && dist > 0) {
-          p.x += (dx / dist) * 0.8
-          p.y += (dy / dist) * 0.8
+        if (!isMobile) {
+          const dx = mouseX - p.x
+          const dy = mouseY - p.y
+          const dist = Math.sqrt(dx * dx + dy * dy)
+          if (dist < 250 && dist > 0) {
+            p.x += (dx / dist) * 0.8
+            p.y += (dy / dist) * 0.8
+          }
         }
 
         p.x += p.speedX
@@ -73,7 +76,7 @@ export default function ParticleCanvas() {
     animate()
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove)
+      if (!isMobile) window.removeEventListener('mousemove', handleMouseMove)
       window.removeEventListener('resize', handleResize)
       cancelAnimationFrame(animationId)
     }
