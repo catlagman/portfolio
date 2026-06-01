@@ -185,7 +185,7 @@ export default function Home() {
       {/* Password Prompt */}
       {showPasswordPrompt && (
         <div className={styles.modalOverlay} onClick={() => setShowPasswordPrompt(false)}>
-          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()} style={{ maxWidth: '400px' }}>
+          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()} style={{ maxWidth: '560px' }}>
             <button className={styles.modalClose} onClick={() => setShowPasswordPrompt(false)}>×</button>
             <h2 className={styles.modalTitle}>Protected Work</h2>
             <p style={{ marginBottom: '1.5rem', opacity: 0.6, fontFamily: 'Instrument Sans, sans-serif' }}>Enter the password to view this case study.</p>
@@ -196,8 +196,7 @@ export default function Home() {
                 onChange={(e) => { setPasswordInput(e.target.value); setPasswordError(false) }}
                 placeholder="Password"
                 autoFocus
-                className={styles.formInput}
-                style={{ width: '100%', marginBottom: '1rem' }}
+                style={{ width: '100%', marginBottom: '1rem', padding: '1rem 1.25rem', fontFamily: 'Instrument Sans, sans-serif', fontSize: '1rem', background: '#f5f5f5', border: '1px solid #e0e0e0', borderRadius: '12px', color: '#1A0238', outline: 'none', boxSizing: 'border-box' }}
               />
               {passwordError && (
                 <p style={{ color: '#ff6b6b', marginBottom: '1rem', fontSize: '0.9rem', fontFamily: 'Instrument Sans, sans-serif' }}>Incorrect password. Please try again.</p>
