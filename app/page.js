@@ -51,7 +51,6 @@ export default function Home() {
     setOpenModal(slug)
     setModalLoading(true)
     setModalContent(null)
-    
     try {
       const response = await fetch(`/api/case-study/${slug}`)
       const data = await response.json()
@@ -164,12 +163,11 @@ export default function Home() {
           Selected pieces of work. For more, please <a href="mailto:calagman@gmail.com" className={styles.underline}>reach out</a>.
         </p>
         <div className={styles.caseStudyGrid}>
-          <div className={styles.caseStudyCard} onClick={() => handleCardClick('kespry')}>
+          <div className={styles.caseStudyCard} onClick={() => handleCardClick('aws')}>
             <div className={styles.cardContent}>
-              <h3>Reimagining Inventory Management</h3>
-              <p className={styles.cardMeta}>Kespry · Research, Strategy, Interaction · 2018</p>
+              <h3>Strategic research studies that have informed design strategy and beyond</h3>
+              <p className={styles.cardMeta}>AWS · Research, Strategy · 2023</p>
             </div>
-            <span className={styles.cardArrow}>→</span>
           </div>
 
           <div className={styles.caseStudyCard} onClick={() => handleCardClick('able-co')}>
@@ -177,15 +175,13 @@ export default function Home() {
               <h3>Supporting epidemiologists to find relevant cancer research</h3>
               <p className={styles.cardMeta}>Able Co. · Research, Strategy, Interaction · 2019</p>
             </div>
-            <span className={styles.cardArrow}>→</span>
           </div>
 
-          <div className={styles.caseStudyCard} onClick={() => handleCardClick('aws')}>
+          <div className={styles.caseStudyCard} onClick={() => handleCardClick('kespry')}>
             <div className={styles.cardContent}>
-              <h3>Strategic research studies that have informed design strategy and beyond</h3>
-              <p className={styles.cardMeta}>AWS · Research, Strategy · 2023</p>
+              <h3>Reimagining Inventory Management</h3>
+              <p className={styles.cardMeta}>Kespry · Research, Strategy, Interaction · 2018</p>
             </div>
-            <span className={styles.cardArrow}>→</span>
           </div>
         </div>
       </section>
