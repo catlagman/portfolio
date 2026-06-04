@@ -185,8 +185,8 @@ export default function Home() {
       {/* Password Prompt */}
       {showPasswordPrompt && (
         <div className={styles.modalOverlay} onClick={() => setShowPasswordPrompt(false)}>
+          <button className={styles.modalClose} onClick={() => setShowPasswordPrompt(false)}>×</button>
           <div className={styles.modalContent} onClick={(e) => e.stopPropagation()} style={{ maxWidth: '560px' }}>
-            <button className={styles.modalClose} onClick={() => setShowPasswordPrompt(false)}>×</button>
             <h2 className={styles.modalTitle}>Protected Work</h2>
             <p style={{ marginBottom: '1.5rem', opacity: 0.6, fontFamily: 'Instrument Sans, sans-serif' }}>Enter the password to view this case study.</p>
             <form onSubmit={handlePasswordSubmit}>
@@ -210,8 +210,8 @@ export default function Home() {
       {/* Case Study Modal */}
       {openModal && (
         <div className={styles.modalOverlay} onClick={closeModal}>
+          <button className={styles.modalClose} onClick={closeModal}>×</button>
           <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-            <button className={styles.modalClose} onClick={closeModal}>×</button>
             {modalLoading ? (
               <div className={styles.modalLoading}><p>Loading...</p></div>
             ) : modalContent ? (
