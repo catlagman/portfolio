@@ -594,6 +594,12 @@ $spacing-section: 4rem;
   overflow-y: auto;
 }
 
+.modalWrapper {
+  position: relative;
+  max-width: 900px;
+  width: 100%;
+}
+
 .modalContent {
   background: #FFFFFF;
   border-radius: 16px;
@@ -608,9 +614,9 @@ $spacing-section: 4rem;
 }
 
 .modalClose {
-  position: fixed;
-  top: 1rem;
-  right: 1.5rem;
+  position: absolute;
+  top: -2.5rem;
+  right: 0;
   background: transparent;
   border: none;
   font-size: 1.75rem;
@@ -738,7 +744,13 @@ $spacing-section: 4rem;
 }
 
 @media (max-width: 768px) {
-  .modalContent {
+  .modalWrapper {
+  position: relative;
+  max-width: 900px;
+  width: 100%;
+}
+
+.modalContent {
     padding: 2rem 1.5rem;
     max-height: 75vh;
   }
