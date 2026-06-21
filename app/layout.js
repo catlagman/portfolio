@@ -1,6 +1,5 @@
 import './globals.css'
 import Script from 'next/script'
-import ParticleCanvas from './ParticleCanvas'
 
 export const metadata = {
   title: 'Cat Lagman - Product Designer',
@@ -34,7 +33,6 @@ export default function RootLayout({ children }) {
         </Script>
       </head>
       <body>
-        <ParticleCanvas />
         {children}
       </body>
     </html>
